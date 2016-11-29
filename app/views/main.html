@@ -1,23 +1,35 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<ul
+  ag-id="gallery"
+  angular-grid="posts"
+  class="dynamic-grid"
+>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+  <li
+    class="grid"
+    ng-repeat="post in posts"
+  >
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+    <a ng-href="#/emails/{{::post.id}}">
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+      <img
+        alt="{{::post._embedded['wp:featuredmedia'][0].alt_text}}"
+        class="grid-img"
+        data-actual-height="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"
+        data-actual-width="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
+        ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
+      >
+
+    </a>
+
+  </li>
+</ul>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <button
+      class="btn btn-lg btn-primary"
+      ng-click="loadMore()"
+      type="button"
+    >Load More</button>
+  </div>
 </div>

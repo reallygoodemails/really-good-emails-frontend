@@ -1,25 +1,41 @@
-<div class="wrapper">
-  <div class="masonry">
-    <li class="item" ng-repeat="post in posts">
-      <a ng-href="#/emails/{{::post.id}}">
-        <img
-          alt="{{::post._embedded['wp:featuredmedia'][0].alt_text}}"
-          class="img-responsive"
-          ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
-        >
-      </a>
-    </li>
-  </div>
-</div>
+<ul
+  ag-css-grid="true"
+  ag-id="gallery"
+  ag-infinite-scroll="vm.loadMorePosts()"
+  angular-grid="vm.posts"
+  class="grid list-unstyled row"
+>
 
-<nav class="navbar navbar-default navbar-fixed-bottom footer">
+  <li
+    class="col-md-3 col-xs-6"
+    ng-repeat="post in ::vm.posts"
+  >
+
+    <a ng-href="#/emails/{{::post.id}}">
+
+      <img
+        actual-height="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"
+        actual-width="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
+        alt="{{::post._embedded['wp:featuredmedia'][0].alt_text}}"
+        class="grid-img"
+        ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
+      >
+
+      <p>{{::post.title.rendered}}</p>
+
+    </a>
+
+  </li>
+</ul>
+
+<nav class="navbar navbar-default navbar-fixed-bottom footer" ng-show="vm.loadingMore">
   <div class="row">
-    <div class="col-md-offset-1 col-md-10 text-center">
-      <button
-        class="btn btn-lg btn-block"
-        ng-click="loadMore()"
-        type="button"
-      >Load More</button>
+    <div class="col-md-offset-4 col-md-4">
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+          <span class="sr-only">45% Complete</span>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

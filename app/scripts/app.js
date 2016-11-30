@@ -11,7 +11,8 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        controllerAs: 'vm'
       })
       .when('/emails/:id', {
         templateUrl: 'views/email.html',
@@ -24,7 +25,7 @@ angular
 
   .config(function (DSHttpAdapterProvider) {
     angular.extend(DSHttpAdapterProvider.defaults, {
-      basePath: 'http://reallygoodemails.com/wp-json/wp/v2'
+      basePath: 'http://localhost/wp-json/wp/v2'
     });
   })
 

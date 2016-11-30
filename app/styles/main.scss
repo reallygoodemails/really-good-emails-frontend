@@ -4,15 +4,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 
 .grid {
-  border: 1px solid #cccccc;
-  list-style: none;
-  background: #ffffff;
   box-sizing: border-box;
   -moz-box-sizing : border-box;
   -webkit-transition: all 0.6s ease-out;
   transition: all 0.6s ease-out;
 }
 .grid-img {
+  border: 1px solid #ccc;
   width: 100%;
   vertical-align: middle;
   -webkit-transition: opacity 0.6s ease-out;
@@ -24,4 +22,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 .grid-img.img-loaded{
   visibility: visible;
   opacity: 1;
+}
+
+
+.footer {
+  padding: 30px 0;
 }

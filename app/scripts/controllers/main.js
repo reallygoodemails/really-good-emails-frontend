@@ -3,17 +3,22 @@
 angular.module('reallyGoodEmailsApp')
   .controller('MainCtrl', function ($scope, DS) {
 
-    DS.findAll('posts', {'_embed': 1}).then(function (posts) {
-      $scope.posts = posts;
-    });
+    // @see http://www.js-data.io/docs/dsfindall
+    var params = {
+      '_embed': 1,
+      'page': 1,
+      'per_page': 15
+    };
 
-    var page = 2;
+    $scope.posts = [];
 
     $scope.loadMore = function() {
-      DS.findAll('posts', {'_embed': 1, page: page}).then(function (posts) {
+      DS.findAll('posts', params).then(function (posts) {
         $scope.posts = $scope.posts.concat(posts);
-        page++;
+        params.page++;
       });
     };
+
+    $scope.loadMore();
 
   });

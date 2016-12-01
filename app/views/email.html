@@ -1,4 +1,17 @@
-<img
-  alt="{{::post._embedded['wp:featuredmedia'][0].alt_text}}"
-  ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
->
+<div class="row">
+  <div class="col-md-6">
+    <img
+      alt="{{vm.post._embedded['wp:featuredmedia'][0].alt_text}}"
+      class="img-responsive"
+      height="{{vm.post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"
+      ng-src="{{vm.post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
+      width="{{vm.post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
+    >
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <dir-disqus config="vm.disqusConfig"></dir-disqus>
+  </div>
+</div>

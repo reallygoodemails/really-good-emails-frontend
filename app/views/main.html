@@ -11,7 +11,7 @@
     ng-repeat="post in ::vm.posts"
   >
 
-    <a ng-href="#/emails/{{::post.id}}">
+    <a ng-href="#/emails/{{::post.slug}}">
 
       <img
         actual-height="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"

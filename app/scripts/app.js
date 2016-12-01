@@ -3,6 +3,7 @@
 angular
   .module('reallyGoodEmailsApp', [
     'angularGrid',
+    'angularUtils.directives.dirDisqus',
     'js-data',
     'ngRoute'
   ])
@@ -14,9 +15,10 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'vm'
       })
-      .when('/emails/:id', {
+      .when('/emails/:slug', {
         templateUrl: 'views/email.html',
-        controller: 'EmailCtrl'
+        controller: 'EmailCtrl',
+        controllerAs: 'vm'
       })
       .otherwise({
         redirectTo: '/'

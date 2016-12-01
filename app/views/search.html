@@ -1,0 +1,28 @@
+<input
+  autocomplete="off"
+  class="autocomplete"
+  id="q"
+  ng-model="search.query"
+  placeholder="Search"
+  spellcheck="false"
+  type="text"
+>
+
+<ul
+  ag-id="gallery"
+  angular-grid="search.hits"
+  class="grid list-unstyled row"
+>
+  <li
+    class="col-md-3 col-xs-6"
+    ng-repeat="hit in search.hits"
+  >
+    <a ng-href="#/emails/{{::hit.slug}}">
+
+      <img
+        class="grid-img"
+        ng-src="{{hit.thumbnail_url}}"
+      >
+    </a>
+  </li>
+</ul>

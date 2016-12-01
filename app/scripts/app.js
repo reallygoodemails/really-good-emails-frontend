@@ -2,6 +2,7 @@
 
 angular
   .module('reallyGoodEmailsApp', [
+    'algoliasearch',
     'angularGrid',
     'angularUtils.directives.dirDisqus',
     'js-data',
@@ -18,6 +19,11 @@ angular
       .when('/emails/:slug', {
         templateUrl: 'views/email.html',
         controller: 'EmailCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl',
         controllerAs: 'vm'
       })
       .otherwise({

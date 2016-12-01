@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('MainCtrl', function(DS) {
+  .controller('MainCtrl', function(DS, $routeParams) {
 
     // @see http://www.js-data.io/docs/dsfindall
     // @see http://v2.wp-api.org/reference/posts/
     var params = {
       '_embed': 1,
+      'categories': $routeParams.categories,
       'page': 0
     };
 

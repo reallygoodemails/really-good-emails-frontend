@@ -16,6 +16,16 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'vm'
       })
+      .when('/categories', {
+        templateUrl: 'views/categories.html',
+        controller: 'CategoriesCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/categories/:slug', {
+        templateUrl: 'views/category.html',
+        controller: 'CategoryCtrl',
+        controllerAs: 'vm'
+      })
       .when('/emails/:slug', {
         templateUrl: 'views/email.html',
         controller: 'EmailCtrl',
@@ -38,5 +48,6 @@ angular
   })
 
   .run(function (DS) {
+    DS.defineResource('categories');
     DS.defineResource('posts');
   });

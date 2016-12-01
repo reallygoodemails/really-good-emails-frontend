@@ -11,6 +11,13 @@
     ng-repeat="post in vm.posts"
   >
 
+    <div ng-if="$index === 3">
+      <a href="https://litmus.com/email-testing?utm_source=really_good_emails" target="_blank">
+        <img src="https://reallygoodemails.com/wp-content/uploads/litmus.png" class="grid-img">
+      </a>
+      <p class="rge--text-small">Optimize every email for the clients and devices your subscribers use most.</p>
+    </div>
+
     <a ng-href="#/emails/{{::post.slug}}">
 
       <img
@@ -24,6 +31,13 @@
       <p>{{::post.title.rendered}}</p>
 
     </a>
+
+    <div ng-if="$index === 2">
+      <a href="https://www.campaignmonitor.com/?utm_campaign=reallygoodemails&amp;utm_source=reallygoodemailsad&amp;utm_medium=referral" target="_blank">
+        <img src="https://reallygoodemails.com/wp-content/uploads/cm_logo.jpg" class="grid-img">
+      </a>
+      <p class="rge--text-small">Elegantly simple email marketing.</p>
+    </div>
 
   </li>
 </ul>

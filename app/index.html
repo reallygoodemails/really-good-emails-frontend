@@ -16,28 +16,39 @@
   </head>
   <body ng-app="reallyGoodEmailsApp">
     <div class="header">
-      <div class="navbar navbar-default" role="navigation">
+      <nav class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
-
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-
-            <a class="navbar-brand" href="#/">Really Good Emails</a>
+            <a class="navbar-brand" href="#/">
+              <img alt="Really Good Emails" src="images/_icons/favicon-32x32.png">
+            </a>
           </div>
-
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+            </form>
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
+              <li><a href="#/categories">Categories</a></li>
+              <li><a href="https://medium.com/reallygoodemails">Articles</a></li>
+              <li><a href="https://reallygoodemails.com/resources/">Resources</a></li>
+              <li><a href="https://shop.reallygoodemails.com/">Shop</a></li>
             </ul>
+            <p class="navbar-text navbar-right">
+              <a href="#">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+              </a>
+            </p>
           </div>
         </div>
-      </div>
+      </nav>
     </div>
 
     <div class="container" ng-view autoscroll></div>

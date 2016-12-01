@@ -13,15 +13,22 @@ angular.module('reallyGoodEmailsApp')
     var vm = this;
     vm.posts = [];
     vm.loadingMore = false;
+    vm.angularGridOptions = {
+      cssGrid: true,
+      refreshOnImgLoad: false
+    };
 
     vm.loadMorePosts = function() {
-      if(vm.loadingMore) return;
+      if(vm.loadingMore) { return; }
       params.page++;
       vm.loadingMore = true;
-      DS.findAll('posts', params).then(function (posts) {
-        vm.posts = vm.posts.concat(posts);
-        vm.loadingMore = false;
-      });
+
+      DS.findAll('posts', params)
+        .then(function (posts) {
+          vm.posts = vm.posts.concat(posts);
+          vm.loadingMore = false;
+        }
+      );
     };
 
     vm.loadMorePosts();

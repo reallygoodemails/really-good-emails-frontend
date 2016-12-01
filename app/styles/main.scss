@@ -10,11 +10,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   transition: all 0.6s ease-out;
 }
 .grid-img {
-  border: 1px solid #ccc;
   width: 100%;
   vertical-align: middle;
+
+  -moz-transition: opacity 0.6s ease-out;
   -webkit-transition: opacity 0.6s ease-out;
   transition: opacity 0.6s ease-out;
+
   background-color: #fff;
   opacity: 0;
   visibility: hidden;
@@ -22,6 +24,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 .grid-img.img-loaded{
   visibility: visible;
   opacity: 1;
+  border: 1px solid #ccc;
 }
 
 

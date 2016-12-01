@@ -1,23 +1,23 @@
 <ul
-  ag-css-grid="true"
   ag-id="gallery"
   ag-infinite-scroll="vm.loadMorePosts()"
+  ag-options="vm.angularGridOptions"
   angular-grid="vm.posts"
   class="grid list-unstyled row"
 >
 
   <li
     class="col-md-3 col-xs-6"
-    ng-repeat="post in ::vm.posts"
+    ng-repeat="post in vm.posts"
   >
 
     <a ng-href="#/emails/{{::post.slug}}">
 
       <img
-        actual-height="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"
-        actual-width="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
         alt="{{::post._embedded['wp:featuredmedia'][0].alt_text}}"
         class="grid-img"
+        data-actual-height="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"
+        data-actual-width="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
         ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
       >
 

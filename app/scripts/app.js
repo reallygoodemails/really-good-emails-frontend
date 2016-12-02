@@ -6,7 +6,8 @@ angular
     'angularGrid',
     'angularUtils.directives.dirDisqus',
     'js-data',
-    'ngRoute'
+    'ngRoute',
+    'ngSanitize'
   ])
 
   .config(function ($routeProvider) {

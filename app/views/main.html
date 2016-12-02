@@ -27,9 +27,7 @@
         data-actual-width="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
         ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
       >
-
-      <p>{{::post.title.rendered}}</p>
-
+      <p class="text-center" ng-bind-html="::post.title.rendered"></p>
     </a>
 
     <div ng-if="$index === 2">

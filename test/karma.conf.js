@@ -20,17 +20,18 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // bower:js
+      'bower_components/es6-promise/es6-promise.js',
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angulargrid/angulargrid.js',
-      'bower_components/js-data/dist/js-data.js',
-      'bower_components/js-data-angular/dist/js-data-angular.js',
       'bower_components/angularUtils-disqus/dirDisqus.js',
       'bower_components/algoliasearch/dist/algoliasearch.angular.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/js-data/dist/js-data.js',
+      'bower_components/js-data-angular/dist/js-data-angular.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',

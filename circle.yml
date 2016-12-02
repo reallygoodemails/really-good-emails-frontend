@@ -1,7 +1,7 @@
 ## Customize dependencies
 dependencies:
   pre:
-    - npm install -g bower
+    - npm install -g bower grunt-cli
     - bower install
 
   cache_directories:
@@ -11,3 +11,14 @@ dependencies:
 test:
   override:
     - npm run test-single-run
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - grunt build
+      - aws s3 sync dist s3://reallygoodemails/ --delete
+
+general:
+  artifacts:
+    - "dist"

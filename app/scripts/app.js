@@ -44,7 +44,7 @@ angular
 
   .config(function (DSHttpAdapterProvider) {
     angular.extend(DSHttpAdapterProvider.defaults, {
-      basePath: 'http://localhost/wp-json/wp/v2'
+      basePath: 'http://reallygoodemails.com/wp-json/wp/v2'
     });
   })
 

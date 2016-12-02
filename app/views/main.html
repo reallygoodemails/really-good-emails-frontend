@@ -15,26 +15,27 @@
       <a href="https://litmus.com/email-testing?utm_source=really_good_emails" target="_blank">
         <img src="https://reallygoodemails.com/wp-content/uploads/litmus.png" class="grid-img">
       </a>
-      <p class="rge--text-small">Optimize every email for the clients and devices your subscribers use most.</p>
+      <p class="text-center">Optimize every email for the clients and devices your subscribers use most.</p>
     </div>
 
-    <a ng-href="#/emails/{{::post.slug}}">
-
-      <img
-        alt="{{::post._embedded['wp:featuredmedia'][0].alt_text}}"
-        class="grid-img"
-        data-actual-height="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"
-        data-actual-width="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
-        ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
-      >
-      <p class="text-center" ng-bind-html="::post.title.rendered"></p>
-    </a>
+    <div class="post">
+      <a ng-href="#/emails/{{::post.slug}}">
+        <img
+          alt="{{::post._embedded['wp:featuredmedia'][0].alt_text}}"
+          class="grid-img"
+          data-actual-height="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"
+          data-actual-width="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
+          ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
+        >
+        <p class="text-center" ng-bind-html="::post.title.rendered"></p>
+      </a>
+    </div>
 
     <div ng-if="$index === 2">
       <a href="https://www.campaignmonitor.com/?utm_campaign=reallygoodemails&amp;utm_source=reallygoodemailsad&amp;utm_medium=referral" target="_blank">
         <img src="https://reallygoodemails.com/wp-content/uploads/cm_logo.jpg" class="grid-img">
       </a>
-      <p class="rge--text-small">Elegantly simple email marketing.</p>
+      <p class="text-center">Elegantly simple email marketing.</p>
     </div>
 
   </li>

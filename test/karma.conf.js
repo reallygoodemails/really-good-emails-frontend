@@ -29,6 +29,7 @@ module.exports = function(config) {
       'bower_components/angularUtils-disqus/dirDisqus.js',
       'bower_components/algoliasearch/dist/algoliasearch.angular.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
+      'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/js-data/dist/js-data.js',
       'bower_components/js-data-angular/dist/js-data-angular.js',

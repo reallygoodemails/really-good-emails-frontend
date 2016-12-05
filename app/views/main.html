@@ -1,6 +1,10 @@
+<div
+  infinite-scroll="vm.loadMorePosts()"
+  infinite-scroll-disabled="vm.loadingMore"
+  infinite-scroll-distance="0.5"
+>
 <ul
   ag-id="gallery"
-  ag-infinite-scroll="vm.loadMorePosts()"
   ag-options="vm.angularGridOptions"
   angular-grid="vm.posts"
   class="grid list-unstyled row"
@@ -40,6 +44,7 @@
 
   </li>
 </ul>
+</div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom footer" ng-show="vm.loadingMore">
   <div class="row">

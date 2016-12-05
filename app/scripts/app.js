@@ -5,6 +5,7 @@ angular
     'algoliasearch',
     'angularGrid',
     'angularUtils.directives.dirDisqus',
+    'infinite-scroll',
     'js-data',
     'ngRoute',
     'ngSanitize'

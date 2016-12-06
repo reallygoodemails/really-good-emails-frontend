@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('MainCtrl', function(DS, $routeParams) {
+  .controller('MainCtrl', function(DS, $routeParams, apiHost) {
 
     // @see http://www.js-data.io/docs/dsfindall
     // @see http://v2.wp-api.org/reference/posts/
@@ -32,5 +32,12 @@ angular.module('reallyGoodEmailsApp')
     };
 
     vm.loadMorePosts();
+
+    // Keep post URLs structured like /:category/:slug
+    // WP REST API doesn't expose the categories in a great way.
+    // So it's easier to compute the post URL like this.
+    vm.getLinkURL = function(post) {
+      return '#' + post.link.replace(apiHost, '');
+    };
 
   });

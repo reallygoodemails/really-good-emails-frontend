@@ -11,6 +11,14 @@ angular
     'ngSanitize'
   ])
 
+  .constant('apiHost', 'https://reallygoodemails.com')
+
+  .config(function (DSHttpAdapterProvider, apiHost) {
+    angular.extend(DSHttpAdapterProvider.defaults, {
+      basePath: apiHost + '/wp-json/wp/v2'
+    });
+  })
+
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -28,7 +36,7 @@ angular
         controller: 'CategoryCtrl',
         controllerAs: 'vm'
       })
-      .when('/emails/:slug', {
+      .when('/:category/:slug', {
         templateUrl: 'views/email.html',
         controller: 'EmailCtrl',
         controllerAs: 'vm'
@@ -41,12 +49,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  })
-
-  .config(function (DSHttpAdapterProvider) {
-    angular.extend(DSHttpAdapterProvider.defaults, {
-      basePath: 'http://reallygoodemails.com/wp-json/wp/v2'
-    });
   })
 
   .run(function (DS) {

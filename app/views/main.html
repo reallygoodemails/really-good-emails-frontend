@@ -24,7 +24,7 @@
     </div>
 
     <div class="post">
-      <a ng-href="#/emails/{{::post.slug}}">
+      <a ng-href="{{vm.getLinkURL(post)}}">
         <img
           alt="{{::post._embedded['wp:featuredmedia'][0].alt_text}}"
           class="grid-img"

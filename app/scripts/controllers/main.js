@@ -8,7 +8,8 @@ angular.module('reallyGoodEmailsApp')
     var params = {
       '_embed': 1,
       'categories': $routeParams.categories,
-      'page': 0
+      'page': 0,
+      'per_page': 25
     };
 
     var vm = this;

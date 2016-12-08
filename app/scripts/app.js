@@ -32,8 +32,8 @@ angular
         controller: 'CategoriesCtrl',
         controllerAs: 'vm'
       })
-      .when('/categories/:slug', {
-        templateUrl: 'views/category.html',
+      .when('/category/:slug', {
+        templateUrl: 'views/main.html',
         controller: 'CategoryCtrl',
         controllerAs: 'vm'
       })

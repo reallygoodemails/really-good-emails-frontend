@@ -3,6 +3,7 @@
 angular
   .module('reallyGoodEmailsApp', [
     'algoliasearch',
+    'angular-loading-bar',
     'angularGrid',
     'angularUtils.directives.dirDisqus',
     'infinite-scroll',

@@ -15,9 +15,6 @@ angular.module('reallyGoodEmailsApp')
     var vm = this;
     vm.posts = [];
     vm.loadingMore = false;
-    vm.angularGridOptions = {
-      cssGrid: true,
-    };
 
     vm.loadMorePosts = function() {
       if(vm.loadingMore) { return; }

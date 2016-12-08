@@ -10,9 +10,6 @@ angular.module('reallyGoodEmailsApp')
     };
 
     var vm = this;
-    vm.angularGridOptions = {
-      cssGrid: true,
-    };
 
     DS.findAll('categories', params)
       .then(function(categories) {

@@ -53,5 +53,8 @@ angular
 
   .run(function (DS) {
     DS.defineResource('categories');
-    DS.defineResource('posts');
+    DS.defineResource({
+      name: 'posts',
+      idAttribute: 'slug'
+    });
   });

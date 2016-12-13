@@ -4,47 +4,39 @@
   infinite-scroll-distance="0.5"
   infinite-scroll-immediate-check="false"
 >
-<ul
-  ag-id="gallery"
-  ag-css-grid="true"
-  angular-grid="vm.posts"
-  class="grid list-unstyled row"
->
 
-  <li
-    class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
-    ng-repeat="post in vm.posts"
+  <div
+    ag-id="gallery"
+    ag-options="{direction: 'rtol'}"
+    ag-grid-width="140"
+    ag-gutter-size="10"
+    angular-grid="vm.posts"
+    class="grid list-unstyled"
   >
 
-    <div ng-if="$index === 7">
-      <a href="https://litmus.com/email-testing?utm_source=really_good_emails" target="_blank">
-        <img src="https://reallygoodemails.com/wp-content/uploads/litmus.png" class="grid-img">
-      </a>
-      <p class="text-center">Optimize every email for the clients and devices your subscribers use most.</p>
-    </div>
+    <div ng-repeat="post in vm.posts">
 
-    <div class="post">
-      <a ng-href="{{vm.getLinkURL(post)}}">
-        <img
-          alt="{{::post._embedded['wp:featuredmedia'][0].title.rendered}}"
-          class="grid-img"
-          data-actual-height="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"
-          data-actual-width="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
-          ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
-          sizes="(max-width: 680px) 100vw, 680px"
-          ng-srcset="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}} 680w, {{::post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}} 71w, {{::post._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url}} 182w"
-        >
-        <p class="text-center" ng-bind-html="::post.title.rendered"></p>
-      </a>
-    </div>
+      <div ng-if="$index % 25 === 0">
+        <a href="https://litmus.com/email-testing?utm_source=really_good_emails" target="_blank">
+          <img src="https://reallygoodemails.com/wp-content/uploads/litmus.png" class="grid-img">
+          Optimize every email for the clients and devices your subscribers use most.
+        </a>
+      </div>
 
-    <div ng-if="$index === 3">
-      <a href="https://www.campaignmonitor.com/?utm_campaign=reallygoodemails&amp;utm_source=reallygoodemailsad&amp;utm_medium=referral" target="_blank">
-        <img src="https://reallygoodemails.com/wp-content/uploads/cm_logo.jpg" class="grid-img">
-      </a>
-      <p class="text-center">Elegantly simple email marketing.</p>
-    </div>
+      <div class="post">
+        <a ng-href="{{vm.getLinkURL(post)}}">
+          <img
+            alt="{{::post._embedded['wp:featuredmedia'][0].title.rendered}}"
+            class="grid-img"
+            data-actual-height="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"
+            data-actual-width="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
+            ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
+            sizes="(max-width: 680px) 100vw, 680px"
+            ng-srcset="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}} 680w, {{::post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}} 71w, {{::post._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url}} 182w"
+          >
+        </a>
+      </div>
 
-  </li>
-</ul>
+    </div>
+  </div>
 </div>

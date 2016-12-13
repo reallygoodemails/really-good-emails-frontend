@@ -12,7 +12,7 @@
     <ul>
       <span ng-repeat="terms in vm.post._embedded['wp:term']">
         <li ng-repeat="term in terms">
-          <a ng-href="#/{{term.taxonomy}}/{{term.slug}}">{{term.name}}</a>
+          <a ng-href="/{{term.taxonomy}}/{{term.slug}}">{{term.name}}</a>
         </li>
       </span>
     </ul>

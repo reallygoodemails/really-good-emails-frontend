@@ -1,7 +1,7 @@
 <ul>
   <li ng-repeat="category in vm.categories">
-    <a ng-href="#/category/{{category.slug}}">
       {{category.name}} ({{category.count}})
+    <a ng-href="/category/{{category.slug}}">
     </a>
   </li>
 </ul>

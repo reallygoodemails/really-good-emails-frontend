@@ -14,13 +14,14 @@ angular
 
   .constant('apiHost', 'https://reallygoodemails.com')
 
-  .config(function (DSHttpAdapterProvider, apiHost) {
+  .config(function($locationProvider, $routeProvider, apiHost, DSHttpAdapterProvider) {
+
+    $locationProvider.html5Mode(true);
+
     angular.extend(DSHttpAdapterProvider.defaults, {
       basePath: apiHost + '/wp-json/wp/v2'
     });
-  })
 
-  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

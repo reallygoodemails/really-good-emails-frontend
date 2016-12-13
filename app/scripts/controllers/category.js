@@ -26,7 +26,7 @@ angular.module('reallyGoodEmailsApp')
     // WP REST API doesn't expose the categories in a great way.
     // So it's easier to compute the post URL like this.
     vm.getLinkURL = function(post) {
-      return '#' + post.link.replace(apiHost, '');
+      return post.link.replace(apiHost, '');
     };
 
   });

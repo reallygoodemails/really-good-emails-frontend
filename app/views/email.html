@@ -35,7 +35,7 @@
     <p>Belongs to</p>
     <ul class="list-group" ng-repeat="terms in vm.post._embedded['wp:term']">
       <li ng-repeat="term in terms" class="list-group-item">
-        <a ng-href="/{{term.taxonomy}}/{{term.slug}}">{{term.name}}</a>
+        <a ng-href="{{vm.getLinkURL(term)}}">{{term.name}}</a>
       </li>
     </ul>
   </div>

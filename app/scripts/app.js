@@ -26,7 +26,11 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          category: function() {},
+          tag: function() {}
+        }
       })
       .when('/categories', {
         templateUrl: 'views/categories.html',
@@ -35,8 +39,31 @@ angular
       })
       .when('/category/:slug', {
         templateUrl: 'views/main.html',
-        controller: 'CategoryCtrl',
-        controllerAs: 'vm'
+        controller: 'MainCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          category: function($route, DS) {
+            return DS.findAll('categories', {'slug': $route.current.params.slug})
+              .then(function(categories) {
+                return categories[0];
+              });
+          },
+          tag: function() {}
+        }
+      })
+      .when('/tag/:slug', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          category: function() {},
+          tag: function($route, DS) {
+            return DS.findAll('tags', {'slug': $route.current.params.slug})
+              .then(function(tags) {
+                return tags[0];
+              });
+          }
+        }
       })
       .when('/:category/:slug', {
         templateUrl: 'views/email.html',
@@ -59,4 +86,5 @@ angular
       name: 'posts',
       idAttribute: 'slug'
     });
+    DS.defineResource('tags');
   });

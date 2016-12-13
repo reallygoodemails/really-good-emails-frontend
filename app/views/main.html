@@ -1,3 +1,6 @@
+<h2 ng-if="vm.category">All posts in {{vm.category.name}}</h2>
+<h2 ng-if="vm.tag">All posts tagged {{vm.tag.name}}</h2>
+
 <div
   infinite-scroll="vm.loadMorePosts()"
   infinite-scroll-disabled="vm.loadingMore"

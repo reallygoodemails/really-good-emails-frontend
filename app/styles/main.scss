@@ -38,3 +38,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 .post {
   background: #eee;
 }
+
+// Extend default Bootstrap classes to add support for legacy WordPress content
+.button { @extend .btn; }
+.default { @extend .btn-default; }
+.codepen { @extend .btn-primary; }

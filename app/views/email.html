@@ -1,5 +1,12 @@
 <div class="row">
-  <div class="col-md-18">
+  <div class="col-md-24">
+    <h1 ng-bind-html="vm.post.title.rendered"></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-14">
+    <div ng-bind-html="vm.post.content.rendered"></div>
     <img
       alt="{{vm.post._embedded['wp:featuredmedia'][0].alt_text}}"
       class="img-responsive"
@@ -8,19 +15,34 @@
       width="{{vm.post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
     >
   </div>
-  <div class="col-md-6">
-    <ul>
-      <span ng-repeat="terms in vm.post._embedded['wp:term']">
-        <li ng-repeat="term in terms">
-          <a ng-href="/{{term.taxonomy}}/{{term.slug}}">{{term.name}}</a>
-        </li>
-      </span>
+  <div class="col-md-10">
+
+    <div class="row">
+      <div class="col-md-12">
+        <a href="https://litmus.com/email-testing?utm_source=really_good_emails" target="_blank">
+          <img src="https://reallygoodemails.com/wp-content/uploads/litmus.png" class="img-responsive">
+        </a>
+        <p class="text-center">Optimize every email for the clients and devices your subscribers use most.</p>
+      </div>
+      <div class="col-md-12">
+        <a href="https://www.campaignmonitor.com/?utm_campaign=reallygoodemails&amp;utm_source=reallygoodemailsad&amp;utm_medium=referral" target="_blank">
+          <img src="https://reallygoodemails.com/wp-content/uploads/cm_logo.jpg" class="img-responsive">
+        </a>
+        <p class="text-center">Elegantly simple email marketing.</p>
+      </div>
+    </div>
+
+    <p>Belongs to</p>
+    <ul class="list-group" ng-repeat="terms in vm.post._embedded['wp:term']">
+      <li ng-repeat="term in terms" class="list-group-item">
+        <a ng-href="/{{term.taxonomy}}/{{term.slug}}">{{term.name}}</a>
+      </li>
     </ul>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-18">
+  <div class="col-md-14">
     <dir-disqus config="vm.disqusConfig"></dir-disqus>
   </div>
 </div>

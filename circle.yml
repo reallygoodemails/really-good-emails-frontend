@@ -17,7 +17,6 @@ deployment:
     branch: master
     commands:
       - grunt build
-      - aws s3 sync dist s3://reallygoodemails/ --delete
 
 general:
   artifacts:

@@ -1,29 +1,17 @@
-<input
-  autocomplete="off"
-  class="autocomplete"
-  id="q"
-  ng-model="search.query"
-  placeholder="Search"
-  spellcheck="false"
-  type="text"
->
-
-<ul
+<div
   ag-id="gallery"
-  ag-css-grid="true"
+  ag-options="{direction: 'rtol'}"
+  ag-grid-width="140"
+  ag-gutter-size="10"
   angular-grid="search.hits"
-  class="grid list-unstyled row"
+  class="grid list-unstyled"
 >
-  <li
-    class="col-md-3 col-xs-6"
-    ng-repeat="hit in search.hits"
-  >
-    <a ng-href="/emails/{{::hit.slug}}">
-
+  <div ng-repeat="hit in search.hits">
+    <a ng-href="{{getLinkURL(hit)}}">
       <img
         class="grid-img"
         ng-src="{{hit.thumbnail_url}}"
       >
     </a>
-  </li>
-</ul>
+  </div>
+</div>

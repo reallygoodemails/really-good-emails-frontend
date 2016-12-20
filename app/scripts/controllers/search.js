@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('SearchCtrl', function($scope, algolia) {
+  .controller('SearchCtrl', function($location, $scope, algolia, apiHost) {
     $scope.search = {
-      query: '',
+      query: $location.search().q || '',
       hits: []
     };
     var client = algolia.Client('PBJZ5RMGND', '7181b52312010545c774c92fced72c69');
@@ -19,4 +19,8 @@ angular.module('reallyGoodEmailsApp')
           console.log(err);
       });
     });
+
+    $scope.getLinkURL = function(hit) {
+      return hit.permalink.replace(apiHost, '');
+    };
   });

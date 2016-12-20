@@ -38,5 +38,23 @@ body {
 
 .submit-email-button {
   font-size: 2em;
+  margin-right: 0;
   margin-top: 8px;
+}
+
+.search-field {
+  .input-group-addon {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #D7D7D7;
+    border-radius: 0;
+    color: $navbar-default-link-color;
+    padding: 0;
+  }
+  input[type="search"] {
+    @include box-shadow(none);
+    border: none;
+    border-bottom: 1px solid #D7D7D7;
+    border-radius: 0;
+  }
 }

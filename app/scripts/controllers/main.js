@@ -13,6 +13,7 @@ angular.module('reallyGoodEmailsApp')
 
     var vm = this;
     vm.posts = [];
+    vm.ads = [];
     vm.loadingMore = false;
     vm.category = category;
     vm.tag = tag;
@@ -32,6 +33,7 @@ angular.module('reallyGoodEmailsApp')
       DS.findAll('posts', params)
         .then(function (posts) {
           vm.posts = vm.posts.concat(posts);
+          vm.ads = vm.ads.concat(vm.ads.length);
           vm.loadingMore = false;
         }
       );

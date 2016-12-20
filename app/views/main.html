@@ -1,7 +1,10 @@
 <h2 ng-if="vm.category">All posts in {{vm.category.name}}</h2>
 <h2 ng-if="vm.tag">All posts tagged {{vm.tag.name}}</h2>
 
+<div class="row">
+
 <div
+  class="col-xs-24 col-sm-20 col-md-20 col-lg-20"
   infinite-scroll="vm.loadMorePosts()"
   infinite-scroll-disabled="vm.loadingMore"
   infinite-scroll-distance="0.5"
@@ -10,23 +13,13 @@
 
   <div
     ag-id="gallery"
-    ag-options="{direction: 'rtol'}"
     ag-grid-width="140"
     ag-gutter-size="10"
     angular-grid="vm.posts"
     class="grid list-unstyled"
   >
 
-    <div ng-repeat="post in vm.posts">
-
-      <div ng-if="$index % 25 === 0">
-        <a href="https://litmus.com/email-testing?utm_source=really_good_emails" target="_blank">
-          <img src="https://reallygoodemails.com/wp-content/uploads/litmus.png" class="grid-img">
-          Optimize every email for the clients and devices your subscribers use most.
-        </a>
-      </div>
-
-      <div class="post">
+      <div ng-repeat="post in vm.posts" class="post">
         <a ng-href="{{vm.getLinkURL(post)}}">
           <img
             alt="{{::post._embedded['wp:featuredmedia'][0].title.rendered}}"
@@ -40,6 +33,17 @@
         </a>
       </div>
 
-    </div>
   </div>
+
+</div>
+
+<div class="hidden-xs col-sm-4 col-md-4 col-lg-4">
+  <div ng-repeat="ad in vm.ads" class="advertisement" ng-style="{top: $index * 2000 + 'px'}">
+    <a href="https://litmus.com/email-testing?utm_source=really_good_emails" target="_blank">
+      <img src="https://reallygoodemails.com/wp-content/uploads/litmus.png" class="img-responsive">
+      <small>Optimize every email for the clients and devices your subscribers use most.</small>
+    </a>
+  </div>
+</div>
+
 </div>

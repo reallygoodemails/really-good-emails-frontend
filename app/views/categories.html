@@ -1,7 +1,13 @@
-<div class="row">
-  <div ng-repeat="category in vm.categories" class="col-lg-6">
+<div
+  ag-id="categories"
+  ag-grid-width="140"
+  ag-gutter-size="10"
+  angular-grid="vm.categories"
+  class="grid"
+>
+  <div ng-repeat="category in vm.categories">
     <a ng-href="/category/{{category.slug}}">
-      <p>{{category.name}} ({{category.count}})</p>
+      {{category.name}} ({{category.count}})
     </a>
   </div>
 </div>

@@ -1,4 +1,5 @@
-$brand-primary: #FE4742;
+$btn-border-radius-base: 20px;
+$brand-primary: #FF4C44;
 $font-family-base: 'Roboto', sans-serif;
 $grid-columns: 24;
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
@@ -30,11 +31,14 @@ body {
 .post {
   background: #eee;
 }
+.post:hover img {
+  opacity: 0.5;
+}
 
 // Extend default Bootstrap classes to add support for legacy WordPress content
 .button { @extend .btn; }
-.default { @extend .btn-default; }
-.codepen { @extend .btn-primary; }
+.button.default { @extend .btn-primary; }
+.button.default.codepen { @extend .btn-default; }
 
 .submit-email-button {
   font-size: 2em;

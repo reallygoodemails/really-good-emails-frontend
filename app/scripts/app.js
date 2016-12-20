@@ -14,7 +14,10 @@ angular
 
   .constant('apiHost', 'https://reallygoodemails.com')
 
-  .config(function($locationProvider, $routeProvider, apiHost, DSHttpAdapterProvider) {
+  .config(function($locationProvider, $routeProvider, apiHost, cfpLoadingBarProvider, DSHttpAdapterProvider) {
+
+    cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
 
     $locationProvider.html5Mode(true);
 

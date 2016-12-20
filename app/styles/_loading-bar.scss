@@ -1,0 +1,15 @@
+#loading-bar .bar {
+  position: relative;
+  background: $brand-primary;
+}
+
+#loading-bar .peg {
+  -moz-box-shadow: $brand-primary 1px 0 6px 1px;
+  -ms-box-shadow: $brand-primary 1px 0 6px 1px;
+  -webkit-box-shadow: $brand-primary 1px 0 6px 1px;
+  box-shadow: $brand-primary 1px 0 6px 1px;
+}
+
+#loading-bar-container {
+  overflow: hidden;
+}

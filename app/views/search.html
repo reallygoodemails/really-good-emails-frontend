@@ -1,16 +1,17 @@
 <div
   ag-id="gallery"
-  ag-options="{direction: 'rtol'}"
-  ag-grid-width="140"
-  ag-gutter-size="10"
+  ag-grid-width="160"
+  ag-gutter-size="20"
   angular-grid="search.hits"
   class="grid list-unstyled"
 >
-  <div ng-repeat="hit in search.hits">
+  <div ng-repeat="hit in search.hits" class="post">
     <a ng-href="{{getLinkURL(hit)}}">
       <img
         class="grid-img"
-        ng-src="{{hit.thumbnail_url}}"
+        data-actual-height="{{hit.images.standard.height}}"
+        data-actual-width="{{hit.images.standard.width}}"
+        ng-src="{{hit.images.standard.url}}"
       >
     </a>
   </div>

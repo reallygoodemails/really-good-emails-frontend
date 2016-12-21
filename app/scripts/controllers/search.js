@@ -12,11 +12,8 @@ angular.module('reallyGoodEmailsApp')
     $scope.$watch('search.query', function() {
       index.search($scope.search.query)
         .then(function searchSuccess(content) {
-          console.log(content);
-          // add content of search results to scope for display in view
           $scope.search.hits = content.hits;
         }, function searchFailure(err) {
-          console.log(err);
       });
     });
 

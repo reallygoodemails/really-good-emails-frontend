@@ -15,8 +15,8 @@ test:
 deployment:
   staging:
     branch: master
-    commands:
-      - grunt build
+    heroku:
+      appname: reallygoodemails
 
 general:
   artifacts:

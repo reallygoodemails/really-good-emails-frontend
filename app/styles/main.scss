@@ -30,6 +30,8 @@ body {
 
 .post {
   background: #eee;
+  max-height: 500px;
+  overflow: hidden;
 }
 .post:hover img {
   opacity: 0.5;
@@ -65,5 +67,6 @@ body {
 
 .advertisement {
   position: absolute;
+  left: 5px;
   right: 15px;
 }

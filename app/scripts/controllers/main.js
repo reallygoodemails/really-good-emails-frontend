@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('MainCtrl', function(DS, apiHost, category, tag) {
+  .controller('MainCtrl', function($window, DS, apiHost, category, tag) {
 
     // @see http://www.js-data.io/docs/dsfindall
     // @see http://v2.wp-api.org/reference/posts/
@@ -12,6 +12,11 @@ angular.module('reallyGoodEmailsApp')
     };
 
     var vm = this;
+    vm.gridOptions = {
+      // Hacky method to determine grid width based on viewport size
+      gridWidth: ($window.innerWidth <= 320) ? 135 : 160,
+      gutterSize: 20
+    };
     vm.posts = [];
     vm.ads = [];
     vm.loadingMore = false;

@@ -30,7 +30,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="/" ng-click="search.clear()">
               <img alt="Really Good Emails" src="images/_icons/favicon-32x32.png">
             </a>
           </div>
@@ -48,12 +48,17 @@
                 <input
                   autocomplete="off"
                   class="form-control"
-                  name="q"
+                  name="s"
                   ng-model="search.query"
                   placeholder="Search"
                   spellcheck="false"
                   type="search"
                 >
+                <div class="input-group-addon" ng-show="search.query">
+                  <a href ng-click="search.clear()">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                  </a>
+                </div>
               </div>
             </form>
 

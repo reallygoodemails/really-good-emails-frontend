@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('SearchCtrl', function($scope) {
+  .controller('SearchCtrl', function($location, $scope) {
     $scope.search = {
-      query: ''
+      clear: function() { this.query = ''; },
+      query: $location.search().s || ''
     };
   });

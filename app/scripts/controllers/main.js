@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('MainCtrl', function($anchorScroll, $scope, $window, algolia, apiHost, category, tag) {
+  .controller('MainCtrl', function($anchorScroll, $location, $scope, $window, algolia, apiHost, category, tag) {
 
     var client = algolia.Client('PBJZ5RMGND', '7181b52312010545c774c92fced72c69');
     var index = client.initIndex('wp_searchable_posts');
     var params = {
       'hitsPerPage': 25,
       'page': 0,
-      'query': ''
+      'query': $location.search().s || ''
     };
     var vm = this;
     vm.gridOptions = {
@@ -48,8 +48,7 @@ angular.module('reallyGoodEmailsApp')
     // WP REST API doesn't expose the categories in a great way.
     // So it's easier to compute the post URL like this.
     vm.getLinkURL = function(post) {
-      // return post.permalink.replace(apiHost, '');
-      return post.permalink.replace('https://reallygoodemails.com', '');
+      return post.permalink.replace(apiHost, '');
     };
 
     $scope.$watch('search.query', function(newQuery) {
@@ -59,6 +58,7 @@ angular.module('reallyGoodEmailsApp')
       vm.ads = [];
       vm.loadingMore = false;
       $anchorScroll();
+      $location.search('s', newQuery || null);
       vm.loadMorePosts();
     });
 

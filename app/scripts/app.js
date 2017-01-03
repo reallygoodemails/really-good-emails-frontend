@@ -83,9 +83,6 @@ angular
 
   .run(function (DS) {
     DS.defineResource('categories');
-    DS.defineResource({
-      name: 'posts',
-      idAttribute: 'slug'
-    });
+    DS.defineResource('posts');
     DS.defineResource('tags');
   });

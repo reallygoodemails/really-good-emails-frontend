@@ -1,16 +1,15 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('MainCtrl', function($window, DS, apiHost, category, tag) {
+  .controller('MainCtrl', function($scope, $window, algolia, apiHost, category, tag) {
 
-    // @see http://www.js-data.io/docs/dsfindall
-    // @see http://v2.wp-api.org/reference/posts/
+    var client = algolia.Client('PBJZ5RMGND', '7181b52312010545c774c92fced72c69');
+    var index = client.initIndex('wp_searchable_posts');
     var params = {
-      '_embed': 1,
+      'hitsPerPage': 25,
       'page': 0,
-      'per_page': 25
+      'query': ''
     };
-
     var vm = this;
     vm.gridOptions = {
       // Hacky method to determine grid width based on viewport size
@@ -24,24 +23,23 @@ angular.module('reallyGoodEmailsApp')
     vm.tag = tag;
 
     if (vm.category) {
-      params.categories = [vm.category.id];
+      params.facetFilters = ['taxonomies.category:' + vm.category.name];
     }
     if (vm.tag) {
-      params.tags = [vm.tag.id];
+      params.facetFilters = ['taxonomies.post_tag:' + vm.tag.name];
     }
 
     vm.loadMorePosts = function() {
       if(vm.loadingMore) { return; }
-      params.page++;
       vm.loadingMore = true;
 
-      DS.findAll('posts', params)
-        .then(function (posts) {
-          vm.posts = vm.posts.concat(posts);
+      index.search(params)
+        .then(function(content) {
+          vm.posts = vm.posts.concat(content.hits);
           vm.ads = vm.ads.concat(vm.ads.length);
           vm.loadingMore = false;
-        }
-      );
+          params.page++;
+        });
     };
 
     vm.loadMorePosts();
@@ -50,7 +48,16 @@ angular.module('reallyGoodEmailsApp')
     // WP REST API doesn't expose the categories in a great way.
     // So it's easier to compute the post URL like this.
     vm.getLinkURL = function(post) {
-      return post.link.replace(apiHost, '');
+      // return post.permalink.replace(apiHost, '');
+      return post.permalink.replace('https://reallygoodemails.com', '');
     };
+
+    $scope.$watch('search.query', function(newQuery) {
+      params.query = newQuery;
+      index.search(params)
+        .then(function(content) {
+          vm.posts = content.hits;
+        });
+    });
 
   });

@@ -21,13 +21,13 @@
       <div ng-repeat="post in vm.posts" class="post">
         <a ng-href="{{vm.getLinkURL(post)}}">
           <img
-            alt="{{::post._embedded['wp:featuredmedia'][0].title.rendered}}"
+            alt="{{post.post_title}}"
             class="grid-img"
-            data-actual-height="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.height}}"
-            data-actual-width="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
-            ng-src="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
+            data-actual-height="{{post.images.standard.height}}"
+            data-actual-width="{{post.images.standard.width}}"
+            ng-src="{{post.images.standard.url}}"
             sizes="(max-width: 680px) 100vw, 680px"
-            ng-srcset="{{::post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}} 680w, {{::post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url}} 71w, {{::post._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url}} 182w"
+            ng-srcset="{{post.images.fullsize.url}} 680w, {{post.images.medium.url}} 71w, {{post.images.large.url}} 182w"
           >
         </a>
       </div>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('MainCtrl', function($scope, $window, algolia, apiHost, category, tag) {
+  .controller('MainCtrl', function($anchorScroll, $scope, $window, algolia, apiHost, category, tag) {
 
     var client = algolia.Client('PBJZ5RMGND', '7181b52312010545c774c92fced72c69');
     var index = client.initIndex('wp_searchable_posts');
@@ -37,12 +37,12 @@ angular.module('reallyGoodEmailsApp')
         .then(function(content) {
           vm.posts = vm.posts.concat(content.hits);
           vm.ads = vm.ads.concat(vm.ads.length);
-          vm.loadingMore = false;
           params.page++;
+          if (content.nbPages > params.page) {
+            vm.loadingMore = false;
+          }
         });
     };
-
-    vm.loadMorePosts();
 
     // Keep post URLs structured like /:category/:slug
     // WP REST API doesn't expose the categories in a great way.
@@ -54,10 +54,12 @@ angular.module('reallyGoodEmailsApp')
 
     $scope.$watch('search.query', function(newQuery) {
       params.query = newQuery;
-      index.search(params)
-        .then(function(content) {
-          vm.posts = content.hits;
-        });
+      params.page = 0;
+      vm.posts = [];
+      vm.ads = [];
+      vm.loadingMore = false;
+      $anchorScroll();
+      vm.loadMorePosts();
     });
 
   });

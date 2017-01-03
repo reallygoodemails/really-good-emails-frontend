@@ -86,3 +86,5 @@ angular
     DS.defineResource('posts');
     DS.defineResource('tags');
   });
+
+angular.module('infinite-scroll').value('THROTTLE_MILLISECONDS', 1000);

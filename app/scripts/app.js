@@ -73,9 +73,6 @@ angular
         controller: 'EmailCtrl',
         controllerAs: 'vm'
       })
-      .when('/search', {
-        templateUrl: 'views/search.html'
-      })
       .otherwise({
         redirectTo: '/'
       });

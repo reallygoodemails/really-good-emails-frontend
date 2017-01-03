@@ -17,22 +17,17 @@ angular.module('reallyGoodEmailsApp')
       };
     };
 
-    // @see http://www.js-data.io/docs/dsget
-    // See if the post already exists in the JSData store
-    vm.post = DS.get('posts', $routeParams.slug);
+    var params = {
+      '_embed': 1,
+      'slug': $routeParams.slug
+    };
 
-    // If the post doesn't exist in the store, make an XHR request
-    if (angular.isUndefined(vm.post)) {
-      var params = { '_embed': 1, 'slug': $routeParams.slug };
-      DS.findAll('posts', params)
-        .then(function(posts) {
-          vm.post = posts[0];
-          setDisqusConfig(posts[0]);
-        }
-      );
-    } else {
-      setDisqusConfig(vm.post);
-    }
+    DS.findAll('posts', params)
+      .then(function(posts) {
+        vm.post = posts[0];
+        setDisqusConfig(posts[0]);
+      }
+    );
 
     // Keep post URLs structured like /tag/:slug and /category/:slug
     // WP REST API doesn't expose these in a great way.

@@ -18,7 +18,7 @@
   >
 
       <div ng-repeat="post in vm.posts" class="post">
-        <a ng-href="{{vm.getLinkURL(post)}}">
+        <a ng-href="{{post.permalink | rgeUrl}}">
           <img
             alt="{{post.post_title}}"
             class="grid-img"

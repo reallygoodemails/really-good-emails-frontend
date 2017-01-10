@@ -44,13 +44,6 @@ angular.module('reallyGoodEmailsApp')
         });
     };
 
-    // Keep post URLs structured like /:category/:slug
-    // WP REST API doesn't expose the categories in a great way.
-    // So it's easier to compute the post URL like this.
-    vm.getLinkURL = function(post) {
-      return post.permalink.replace(apiHost, '');
-    };
-
     $scope.$watch('search.query', function(newQuery) {
       params.query = newQuery;
       params.page = 0;

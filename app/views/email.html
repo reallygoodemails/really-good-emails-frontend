@@ -1,12 +1,16 @@
 <div class="row">
-  <div class="col-md-24">
-    <h1 ng-bind-html="vm.post.title.rendered"></h1>
+  <div class="col-md-24 email" ng-show="vm.post.title">
+    <span class="email__subject-label">Subject</span>
+    <h2 class="email__subject" ng-bind-html="vm.post.title.rendered"></h2>
+    <span class="email__subject-from">from</span>
+    <a ng-href="{{vm.post._embedded['wp:term'][1][0].link | rgeUrl}}">{{vm.post._embedded['wp:term'][1][0].name}}</a>
   </div>
 </div>
 
 <div class="row">
+
   <div class="col-md-14">
-    <div ng-bind-html="vm.post.content.rendered"></div>
+    <div class="well" ng-show="vm.post.content" ng-bind-html="vm.post.content.rendered"></div>
     <img
       alt="{{vm.post._embedded['wp:featuredmedia'][0].alt_text}}"
       class="img-responsive"
@@ -14,9 +18,14 @@
       ng-src="{{vm.post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.source_url}}"
       width="{{vm.post._embedded['wp:featuredmedia'][0].media_details.sizes.standard.width}}"
     >
+    <ul class="list-inline">
+      <li ng-repeat="term in vm.post._embedded['wp:term'][0]">
+        <h3><a ng-href="{{term.link | rgeUrl}}">{{term.name}}</a></h3>
+      </li>
+    </ul>
   </div>
-  <div class="col-md-10">
 
+  <div class="col-md-10">
     <div class="row">
       <div class="col-md-12">
         <a href="https://litmus.com/email-testing?utm_source=really_good_emails" target="_blank">
@@ -31,18 +40,7 @@
         <p class="text-center">Elegantly simple email marketing.</p>
       </div>
     </div>
-
-    <p>Belongs to</p>
-    <ul class="list-group" ng-repeat="terms in vm.post._embedded['wp:term']">
-      <li ng-repeat="term in terms" class="list-group-item">
-        <a ng-href="{{vm.getLinkURL(term)}}">{{term.name}}</a>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-14">
     <dir-disqus config="vm.disqusConfig"></dir-disqus>
   </div>
+
 </div>

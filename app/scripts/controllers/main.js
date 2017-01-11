@@ -4,7 +4,7 @@ angular.module('reallyGoodEmailsApp')
   .controller('MainCtrl', function($anchorScroll, $location, $scope, $window, algolia, apiHost, category, tag) {
 
     var client = algolia.Client('PBJZ5RMGND', '7181b52312010545c774c92fced72c69');
-    var index = client.initIndex('wp_searchable_posts');
+    var index = client.initIndex('wp_posts_post');
     var params = {
       'hitsPerPage': 25,
       'page': 0,

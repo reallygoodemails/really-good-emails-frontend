@@ -35,6 +35,7 @@ angular.module('reallyGoodEmailsApp')
 
       index.search(params)
         .then(function(content) {
+          vm.hits = content.nbHits;
           vm.posts = vm.posts.concat(content.hits);
           vm.ads = vm.ads.concat(vm.ads.length);
           params.page++;

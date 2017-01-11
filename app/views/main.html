@@ -1,5 +1,6 @@
-<h2 ng-if="vm.category">All posts in {{vm.category.name}}</h2>
-<h2 ng-if="vm.tag">All posts tagged {{vm.tag.name}}</h2>
+<h2 ng-if="vm.category">Found {{vm.hits}} in <em>{{vm.category.name}}</em></h2>
+<h2 ng-if="vm.tag">Found {{vm.hits}} tagged <em>{{vm.tag.name}}</em></h2>
+<h2 ng-if="search.query">Found {{vm.hits}} results for <em>{{search.query}}</em></h2>
 
 <div class="row">
 

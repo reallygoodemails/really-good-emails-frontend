@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('EmailCtrl', function($routeParams, DS, apiHost) {
+  .controller('EmailCtrl', function($routeParams, DS) {
 
     var vm = this;
 

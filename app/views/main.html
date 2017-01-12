@@ -18,8 +18,11 @@
     class="grid list-unstyled"
   >
 
-      <div ng-repeat="post in vm.posts" class="post">
+      <!-- TODO: track by unique -->
+      <div ng-repeat="post in vm.posts" class="post text-center">
         <a ng-href="{{post.permalink | rgeUrl}}">
+          <!-- TODO: use different directives depending on object type [post, category, etc.] -->
+          <h3>{{post.name}}</h3>
           <img
             alt="{{post.post_title}}"
             class="grid-img"

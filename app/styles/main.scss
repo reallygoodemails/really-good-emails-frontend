@@ -2,14 +2,14 @@ $btn-border-radius-base: 20px;
 $brand-primary: #FF4C44;
 $font-family-base: 'Roboto', sans-serif;
 $grid-columns: 24;
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 $navbar-default-bg: #FFF;
 $navbar-default-border: #FFF;
 $navbar-default-link-color: #9A9CA0;
 $navbar-margin-bottom: 10px;
 
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
 @import "_email.scss";

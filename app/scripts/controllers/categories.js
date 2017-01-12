@@ -1,24 +1,20 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('CategoriesCtrl', function(DS, categories) {
+  .controller('CategoriesCtrl', function(algolia, rgeConfig) {
 
-    // Pre-populate some categories
-    DS.inject('categories', categories);
+    var client = algolia.Client(rgeConfig.algolia.applicationId, rgeConfig.algolia.apiKey);
+    var index = client.initIndex('wp_terms_category');
 
-    // @see http://v2.wp-api.org/reference/categories/
     var params = {
-      'parent': 0,
-      'per_page': 100
+      'hitsPerPage': 100
     };
-
     var vm = this;
-    vm.categories = DS.getAll('categories');
+    vm.categories = [];
 
-    DS.findAll('categories', params)
-      .then(function (categories) {
-        vm.categories = categories;
-      }
-    );
+    index.search(params)
+      .then(function(content) {
+        vm.categories = content.hits;
+      });
 
   });

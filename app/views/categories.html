@@ -5,9 +5,9 @@
   angular-grid="vm.categories"
   class="grid"
 >
-  <div ng-repeat="category in vm.categories">
+  <div ng-repeat="category in vm.categories | orderBy:'name'">
     <a ng-href="/category/{{category.slug}}">
-      {{category.name}} ({{category.count}})
+      {{category.name}} ({{category.posts_count}})
     </a>
   </div>
 </div>

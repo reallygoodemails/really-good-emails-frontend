@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('MainCtrl', function($anchorScroll, $location, $scope, $window, algolia, apiHost, category, tag) {
+  .controller('MainCtrl', function($anchorScroll, $location, $scope, $window, algolia, rgeConfig, category, tag) {
 
-    var client = algolia.Client('PBJZ5RMGND', '7181b52312010545c774c92fced72c69');
+    var client = algolia.Client(rgeConfig.algolia.applicationId, rgeConfig.algolia.apiKey);
     var index = client.initIndex('wp_posts_post');
     var params = {
       'hitsPerPage': 25,

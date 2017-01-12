@@ -12,9 +12,15 @@ angular
     'ngSanitize'
   ])
 
-  .constant('apiHost', 'https://reallygoodemails.com')
+  .constant('rgeConfig', {
+    apiHost: 'https://reallygoodemails.com',
+    algolia: {
+      applicationId: 'PBJZ5RMGND',
+      apiKey: '7181b52312010545c774c92fced72c69'
+    }
+  })
 
-  .config(function($locationProvider, $routeProvider, apiHost, cfpLoadingBarProvider, DSHttpAdapterProvider) {
+  .config(function($locationProvider, $routeProvider, rgeConfig, cfpLoadingBarProvider, DSHttpAdapterProvider) {
 
     cfpLoadingBarProvider.includeSpinner = false;
     cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
@@ -22,7 +28,7 @@ angular
     $locationProvider.html5Mode(true);
 
     angular.extend(DSHttpAdapterProvider.defaults, {
-      basePath: apiHost + '/wp-json/wp/v2'
+      basePath: rgeConfig.apiHost + '/wp-json/wp/v2'
     });
 
     $routeProvider

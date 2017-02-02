@@ -35,50 +35,70 @@
 </div>
 
 <div class="row">
-  <h1>Categorized</h1>
-  <ul class="list-inline">
-    <li ng-repeat="term in vm.post._embedded['wp:term'][0]">
-      <h3><a ng-href="{{term.link | rgeUrl}}">{{term.name}}</a></h3>
-    </li>
-  </ul>
-</div>
-
-<div class="row">
-  <h1>More {{vm.post._embedded['wp:term'][1][0].name}} emails</h1>
-  <div ng-repeat="post in vm.tagResults" class="col-lg-4 post">
-    <a ng-href="{{post.permalink | rgeUrl}}">
-      <img
-        alt="{{post.post_title}}"
-        class="grid-img img-loaded"
-        data-actual-height="{{post.images.medium.height}}"
-        data-actual-width="{{post.images.medium.width}}"
-        ng-src="{{post.images.medium.url}}"
-        sizes="(max-width: 680px) 100vw, 680px"
-        ng-srcset="{{post.images.fullsize.url}} 680w, {{post.images.medium.url}} 71w, {{post.images.large.url}} 182w"
-      >
-    </a>
-  </div>
-  <div class="col-lg-4">
-    <a ng-href="{{vm.post._embedded['wp:term'][1][0].link | rgeUrl}}">More</a>
+  <div class="col-lg-24">
+    <div class="email__subject-label">Categorized</div>
+    <ul class="list-inline">
+      <li ng-repeat="term in vm.post._embedded['wp:term'][0]">
+        <a ng-href="{{term.link | rgeUrl}}">
+          <h3>{{term.name}}</h3>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
 
 <div class="row">
-  <h1>More {{vm.post._embedded['wp:term'][0][0].name}} emails</h1>
-  <div ng-repeat="post in vm.categoryResults" class="col-lg-4 post">
-    <a ng-href="{{post.permalink | rgeUrl}}">
-      <img
-        alt="{{post.post_title}}"
-        class="grid-img img-loaded"
-        data-actual-height="{{post.images.medium.height}}"
-        data-actual-width="{{post.images.medium.width}}"
-        ng-src="{{post.images.medium.url}}"
-        sizes="(max-width: 680px) 100vw, 680px"
-        ng-srcset="{{post.images.fullsize.url}} 680w, {{post.images.medium.url}} 71w, {{post.images.large.url}} 182w"
-      >
-    </a>
+  <div class="col-lg-24">
+    <div class="email__subject-label">More {{vm.post._embedded['wp:term'][1][0].name}} emails</div>
+  </div>
+  <div ng-repeat="post in vm.tagResults" class="col-lg-4">
+    <div class="post related-post">
+      <a ng-href="{{post.permalink | rgeUrl}}">
+        <img
+          alt="{{post.post_title}}"
+          class="grid-img img-loaded"
+          data-actual-height="{{post.images.medium.height}}"
+          data-actual-width="{{post.images.medium.width}}"
+          ng-src="{{post.images.medium.url}}"
+          sizes="(max-width: 680px) 100vw, 680px"
+          ng-srcset="{{post.images.fullsize.url}} 680w, {{post.images.medium.url}} 71w, {{post.images.large.url}} 182w"
+        >
+      </a>
+    </div>
   </div>
   <div class="col-lg-4">
-    <a ng-href="{{vm.post._embedded['wp:term'][0][0].link | rgeUrl}}">More</a>
+    <div class="post">
+      <a ng-href="{{vm.post._embedded['wp:term'][1][0].link | rgeUrl}}">
+        <div class="category">More</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-24">
+    <div class="email__subject-label">More {{vm.post._embedded['wp:term'][0][0].name}} emails</div>
+  </div>
+  <div ng-repeat="post in vm.categoryResults" class="col-lg-4">
+    <div class="post related-post">
+      <a ng-href="{{post.permalink | rgeUrl}}">
+        <img
+          alt="{{post.post_title}}"
+          class="grid-img img-loaded"
+          data-actual-height="{{post.images.medium.height}}"
+          data-actual-width="{{post.images.medium.width}}"
+          ng-src="{{post.images.medium.url}}"
+          sizes="(max-width: 680px) 100vw, 680px"
+          ng-srcset="{{post.images.fullsize.url}} 680w, {{post.images.medium.url}} 71w, {{post.images.large.url}} 182w"
+        >
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="post">
+      <a ng-href="{{vm.post._embedded['wp:term'][0][0].link | rgeUrl}}">
+        <div class="category">More</div>
+      </a>
+    </div>
   </div>
 </div>

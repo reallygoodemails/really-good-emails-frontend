@@ -39,11 +39,15 @@ body {
 .post:hover img {
   opacity: 0.5;
 }
+.related-post {
+  max-height: 140px;
+}
 
 .category {
   font-size: 1.5em;
   height: 140px;
   line-height: 140px;
+  text-align: center;
   &:hover {
     box-shadow: inset 0 0 0 3px $link-hover-color;
   }

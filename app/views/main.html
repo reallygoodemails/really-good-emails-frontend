@@ -18,7 +18,7 @@
     class="grid list-unstyled"
   >
 
-      <div ng-repeat="post in vm.posts track by $index" class="text-center" ng-class="{post: !post.name}">
+      <div ng-repeat="post in vm.posts track by $index" ng-class="{post: !post.name}">
         <a ng-href="{{post.permalink | rgeUrl}}">
           <!-- TODO: use different directives depending on object type [post, category, etc.] -->
           <div class="category" ng-if="post.name">{{post.name}}</div>

@@ -5,17 +5,9 @@ angular.module('reallyGoodEmailsApp')
 
     var client = algolia.Client(rgeConfig.algolia.applicationId, rgeConfig.algolia.apiKey);
     var params = {
-      'hitsPerPage': 25,
-      'page': 0,
-      'query': $location.search().s || ''
+      page: 0,
+      query: $location.search().s || ''
     };
-    var queries = [{
-      indexName: 'wp_posts_post',
-      params: params
-    }, {
-      indexName: 'wp_terms_category',
-      params: params
-    }];
     var vm = this;
     vm.gridOptions = {
       // Hacky method to determine grid width based on viewport size
@@ -39,14 +31,30 @@ angular.module('reallyGoodEmailsApp')
       if(vm.loadingMore) { return; }
       vm.loadingMore = true;
 
+      var queries = [{
+        indexName: 'wp_posts_post',
+        params: angular.extend({}, params, {
+          hitsPerPage: 25
+        })
+      }, {
+        indexName: 'wp_terms_category',
+        params: angular.extend({}, params, {
+          hitsPerPage: 2
+        })
+      }];
+
       client.search(queries)
         .then(function(content) {
           vm.hits = content.results[0].nbHits;
-          vm.posts = vm.posts.concat(content.results[0].hits);
 
-          vm.posts.splice(5, 0, content.results[1].hits[0]);
-          vm.posts.splice(15, 0, content.results[1].hits[1]);
+          var posts = content.results[0].hits;
+          var categories = content.results[1].hits;
+          if (categories.length) {
+            posts.splice(5, 0, categories[0]);
+            posts.splice(15, 0, categories[1]);
+          }
 
+          vm.posts = vm.posts.concat(posts);
           vm.ads = vm.ads.concat(vm.ads.length);
           params.page++;
           if (content.results[0].nbPages > params.page) {

@@ -18,18 +18,19 @@
     class="grid list-unstyled"
   >
 
-      <div ng-repeat="post in vm.posts track by $index" class="post text-center">
+      <div ng-repeat="post in vm.posts track by $index" class="text-center" ng-class="{post: !post.name}">
         <a ng-href="{{post.permalink | rgeUrl}}">
           <!-- TODO: use different directives depending on object type [post, category, etc.] -->
-          <h3 ng-if="post.name">{{post.name}}</h3>
+          <div class="category" ng-if="post.name">{{post.name}}</div>
           <img
             alt="{{post.post_title}}"
             class="grid-img"
             data-actual-height="{{post.images.medium.height}}"
             data-actual-width="{{post.images.medium.width}}"
+            ng-if="post.images"
             ng-src="{{post.images.medium.url}}"
-            sizes="(max-width: 680px) 100vw, 680px"
             ng-srcset="{{post.images.fullsize.url}} 680w, {{post.images.medium.url}} 71w, {{post.images.large.url}} 182w"
+            sizes="(max-width: 680px) 100vw, 680px"
           >
         </a>
       </div>

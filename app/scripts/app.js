@@ -46,7 +46,21 @@ angular
         controller: 'CategoriesCtrl',
         controllerAs: 'vm'
       })
-      .when('/category/:slug/:slug?', {
+      .when('/category/:slug', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'vm',
+        resolve: {
+          category: function($route, DS) {
+            return DS.findAll('categories', {'slug': $route.current.params.slug})
+              .then(function(categories) {
+                return categories[0];
+              });
+          },
+          tag: function() {}
+        }
+      })
+      .when('/category/:category/:slug', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'vm',

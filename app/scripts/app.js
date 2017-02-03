@@ -46,7 +46,7 @@ angular
         controller: 'CategoriesCtrl',
         controllerAs: 'vm'
       })
-      .when('/category/:slug', {
+      .when('/category/:slug/:slug?', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'vm',

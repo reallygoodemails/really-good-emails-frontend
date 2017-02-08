@@ -93,6 +93,11 @@ angular
         controller: 'EmailCtrl',
         controllerAs: 'vm'
       })
+      .when('/:category/:subcategory/:slug', {
+        templateUrl: 'views/email.html',
+        controller: 'EmailCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -1,9 +1,27 @@
 body {
   padding-top: 110px;
+  @media (max-width: 650px) {
+    padding-top: 130px;
+  }
+  @media (max-width: 375px) {
+    padding-top: 140px;
+  }
+  @media (max-width: 320px) {
+    padding-top: 150px;
+  }
 }
 
 .navbar-fixed-top {
   top: 50px;
+  @media (max-width: 650px) {
+    top: 70px;
+  }
+  @media (max-width: 375px) {
+    top: 80px;
+  }
+  @media (max-width: 320px) {
+    top: 90px;
+  }
 }
 
 .v2-tease {
@@ -22,4 +40,8 @@ body {
     color: #fff;
     text-decoration: underline;
   }
+}
+
+.v2-tease__line {
+  display: inline-block;
 }

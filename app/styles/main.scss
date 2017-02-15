@@ -97,14 +97,17 @@ body {
   left: 5px;
   position: absolute;
   right: 15px;
-  z-index: -2;
   &::before {
     color: #bbb;
     content: 'Really Good Sponsor';
     padding-left: 25px;
     padding-top: 50px;
     position: absolute;
-    z-index: -1;
+    z-index: 20;
+  }
+  div {
+    position: absolute;
+    z-index: 30;
   }
 }
 

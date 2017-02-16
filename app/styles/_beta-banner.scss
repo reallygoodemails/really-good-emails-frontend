@@ -25,6 +25,7 @@ body {
 }
 
 .v2-tease {
+  -webkit-font-smoothing: antialiased;
   position: fixed;
   z-index: $zindex-navbar-fixed;
   top: 0;

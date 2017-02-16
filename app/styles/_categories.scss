@@ -1,0 +1,34 @@
+.categories {
+  -moz-columns: 274px 4;
+  -webkit-columns: 274px 4;
+  columns: 274px 4;
+}
+
+.category {
+}
+
+.category--list {
+  padding-bottom: 20px;
+}
+
+.category--block {
+  font-size: 1.5em;
+  height: 140px;
+  line-height: 140px;
+  text-align: center;
+  &:hover {
+    box-shadow: inset 0 0 0 3px $link-hover-color;
+  }
+}
+
+.category__name {
+}
+
+.category__count {
+  &::before {
+    content: '('
+  }
+  &::after {
+    content: ')'
+  }
+}

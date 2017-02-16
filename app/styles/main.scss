@@ -13,6 +13,7 @@ $navbar-margin-bottom: 10px;
 @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "_categories.scss";
 @import "_email.scss";
 @import "_loading-bar.scss";
 @import "_masonry-grid.scss";
@@ -41,26 +42,6 @@ body {
 }
 .related-post {
   max-height: 140px;
-}
-
-.category {
-  font-size: 1.5em;
-  height: 140px;
-  line-height: 140px;
-  text-align: center;
-  &:hover {
-    box-shadow: inset 0 0 0 3px $link-hover-color;
-  }
-}
-.category__name {
-}
-.category__count {
-  &::before {
-    content: '('
-  }
-  &::after {
-    content: ')'
-  }
 }
 
 // Extend default Bootstrap classes to add support for legacy WordPress content

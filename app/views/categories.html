@@ -1,11 +1,8 @@
-<div
-  ag-id="categories"
-  ag-grid-width="270"
-  ag-gutter-size="20"
-  angular-grid="vm.categories"
-  class="grid"
->
-  <div ng-repeat="category in vm.categories | orderBy:'name'">
+<div class="categories">
+  <div
+    class="category--list"
+    ng-repeat="category in vm.categories | orderBy:'name'"
+  >
     <a ng-href="/category/{{category.slug}}">
       <span class="category__name">{{category.name}}</span>
       <span class="category__count">{{category.posts_count}}</span>

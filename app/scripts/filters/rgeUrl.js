@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .filter('rgeUrl', function(rgeConfig) {
+  .filter('rgeUrl', function() {
     return function(input) {
       if (typeof input !== 'string') { return input; }
-      return input.replace(rgeConfig.apiHost, '');
+      return new Uri(input).path();
     };
   });

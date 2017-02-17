@@ -32,6 +32,7 @@ module.exports = function(config) {
       'bower_components/js-data/dist/js-data.js',
       'bower_components/js-data-angular/dist/js-data-angular.js',
       'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
+      'bower_components/jsUri/Uri.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

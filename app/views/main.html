@@ -25,12 +25,11 @@
           <img
             alt="{{post.post_title}}"
             class="grid-img"
-            data-actual-height="{{post.images.medium.height}}"
-            data-actual-width="{{post.images.medium.width}}"
+            data-actual-height="{{post.images.thumbnail.height}}"
+            data-actual-width="{{post.images.thumbnail.width}}"
             ng-if="post.images"
-            ng-src="{{post.images.medium.url}}"
-            ng-srcset="{{post.images.fullsize.url}} 680w, {{post.images.medium.url}} 71w, {{post.images.large.url}} 182w"
-            sizes="(max-width: 680px) 100vw, 680px"
+            ng-src="{{post.images.thumbnail.url}}"
+            ng-srcset="{{post.images.thumbnail.url}} 70w, {{post.images.medium.url}} 185w, {{post.images.large.url}} 426w"
           >
         </a>
       </div>

@@ -54,6 +54,7 @@
                   class="form-control"
                   name="s"
                   ng-model="search.query"
+                  ng-model-options="{ debounce: 500 }"
                   placeholder="Search"
                   spellcheck="false"
                   type="search"

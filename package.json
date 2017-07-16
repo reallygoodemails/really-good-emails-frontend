@@ -39,7 +39,7 @@
     "time-grunt": "^1.0.0"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": "8.1.4"
   },
   "scripts": {
     "fetch-categories": "curl -s 'https://reallygoodemails.com/wp-json/wp/v2/categories?parent=0&per_page=100' | jq '[.[] | {id: .id, count: .count, name: .name, slug: .slug}]'",

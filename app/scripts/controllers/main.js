@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('reallyGoodEmailsApp')
-  .controller('MainCtrl', function($anchorScroll, $location, $scope, $window, algolia, rgeConfig, category, tag) {
+  .controller('MainCtrl', function($anchorScroll, $location, $scope, $timeout, $window, algolia, rgeConfig, category, tag) {
 
     var client = algolia.Client(rgeConfig.algolia.applicationId, rgeConfig.algolia.apiKey);
     var params = {
@@ -16,6 +16,11 @@ angular.module('reallyGoodEmailsApp')
     };
     vm.posts = [];
     vm.ads = [];
+    $timeout(function() {
+      vm.adsPerPage = Math.round( $window.document.body.clientHeight / $window.innerHeight );
+      vm.ads = new Array(vm.adsPerPage).fill('');
+    }, 500);
+    vm.adPixelInterval = $window.innerHeight;
     vm.loadingMore = false;
     vm.category = category;
     vm.tag = tag;
@@ -55,7 +60,7 @@ angular.module('reallyGoodEmailsApp')
           }
 
           vm.posts = vm.posts.concat(posts);
-          vm.ads = vm.ads.concat(vm.ads.length);
+          vm.ads = vm.ads.concat(vm.ads);
           params.page++;
           if (content.results[0].nbPages > params.page) {
             vm.loadingMore = false;

@@ -39,7 +39,7 @@
 </div>
 
 <div class="hidden-xs col-sm-4 col-md-4 col-lg-4">
-  <div ng-repeat="ad in vm.ads" class="advertisement" ng-style="{top: $index * 2000 + 'px'}">
+  <div ng-repeat="ad in vm.ads track by $index" class="advertisement" ng-style="{top: $index * vm.adPixelInterval + 'px'}">
     <broadstreet-zone zone-id="55755"></broadstreet-zone>
   </div>
 </div>
